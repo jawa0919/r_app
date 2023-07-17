@@ -4,7 +4,12 @@ export const UseState01 = () => {
   const [count, setCount] = useState(1);
   const [countObj, setCountObj] = useState({ count: 1 });
   const [countList, setCountList] = useState([1]);
-  const [countListObj, setCountListObj] = useState([{ count: 1 }]);
+  const [countListObj, setCountListObj] = useState([
+    { count: 1 },
+    { count: 2 },
+    { count: 3 },
+    { count: 4 },
+  ]);
 
   function changeNone() {
     // count1 = count1 + 1;
@@ -47,7 +52,9 @@ export const UseState01 = () => {
       <div>{countList[0]}</div>
       <h1>countListObj</h1>
       <div>{countListObj[0].count}</div>
-
+      {countListObj.map((r, i) => (
+        <div key={i}> {r.count}</div>
+      ))}
       <button onClick={changeNone}>修改无刷新</button>
       <button onClick={change1}>修改刷新1</button>
       <button onClick={change2}>修改刷新2</button>
